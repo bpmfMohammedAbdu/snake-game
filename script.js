@@ -1,11 +1,3 @@
-//step1 creeat canvas 
-//step2 creat snacke
-//step3 creat snacke movement using seit interval
-//step4 creat snacke movemnt clearing the outdating
-//step5 creat the direction of sncake
-
-
-
 //color intensity chenge wen mouse hover
 let originalBg = $("body").css("background");
 

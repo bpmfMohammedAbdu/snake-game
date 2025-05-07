@@ -1,59 +1,6 @@
-/*canvas{
- border: 1px solid rgb(74, 68, 68);
-background-color: black;}
-* {
-        padding: 0px;
-        margin: 0px;
-    }
 
-    #canvas {
-        background-color: #8BAC0F;
-        -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-        -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-        box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    }
-
-    #snakeGroup {
-        text-align: center;
-    }
-
-    #snakeTitle {
-        font-family: 'Sniglet', cursive;
-        font-size: 80px;
-        margin-top: 40px;
-        margin-bottom: 20px;
-    }
-
-    #snakePara {
-        font-family: 'Sniglet', cursive;
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-
-    #gameover {
-        font-family: 'Sniglet', cursive;
-        font-size: 50px;
-        margin-bottom: 15px;
-    }
-
-    #footerText {
-        font-family: 'Sniglet', cursive;
-        font-size: 35px;
-        margin-top: 25px;
-    }
-*/
-.bg{
-    background-image: url("snackeforbg.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-   
-    
-}
 body{
-    background-image: url("images.jpg");
+    background-image: url("asset/Background-img.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
