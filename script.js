@@ -16,17 +16,21 @@ $("#moon").on("mouseout", function() {
     $(this).css({"color": "#A4D8EF"}); 
 });
 
-// sun/moon sound
+// sun/moon 
 $("#sun").on("click", function() {
     $("#sun").hide();
     $("#moon").show();
     $("body").css({"background":originalBg});
+    $("#snakeTitle").css({"color":"#4f9b4f"});
+    $("canvas").css("background-color" ,"#228B22");
 });
 
 $("#moon").on("click", function() {
     $("#moon").hide();
     $("#sun").show();
     $("body").css({ "background": "#121a2f" });
+    $("#snakeTitle").css({"color":"#666"});
+    $("canvas").css("background-color" ,"#666");
 });
 
 
@@ -218,7 +222,9 @@ if(food.x == snackeX && food.y == snackeY) {
     };
     ctx.font = "30px SnakeBite";
     ctx.fillStyle = "#FFD700";
-    ctx.fillText(score, 150, 26);                 
+    ctx.fillText(score, 150, 26);   
+    let EatSound = new Audio("asset/sound/blue.mp3");
+    EatSound.play();              
 }
 else {
     snacke.pop();
@@ -234,7 +240,7 @@ let newHead={
 if (checkCollision(newHead)) {
     clearInterval(playGame); // Stop the game loop
 
-    let gameOverSound = new Audio("sound/wrong.mp3");
+    let gameOverSound = new Audio("asset/sound/wrong.mp3");
     gameOverSound.play();
 
     $("#snakeTitle").addClass("gameovertitle").text("Game Over!");

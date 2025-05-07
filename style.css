@@ -52,6 +52,7 @@ body{
 }
 #snakeTitle{
     text-align: center;
+    color:#4f9b4f;
 }
 .title-container{
     display: flex;
