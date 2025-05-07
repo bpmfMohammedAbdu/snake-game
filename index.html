@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>snacke game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="website icon" type="png" href="snake.png">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+
+      <img src="snackeimg.avif" alt="menuBg" />
+      <h1 id="continertitle" class="slide">snacke game</h1>
+      <button class="btn slide" id="btn1">🎮play</button>
+      <button class="btn slide" id="btn2">difficulty</button>
+      <button class="btn slide" id="btn3">help</button>
+    </div>
+    <div class="difficultyform">
+      <div class="title-container">
+        <h1 id="difficultyformtitle">difficulty</h1>
+        <button id="fab-icon"><i class="fa fa-times"></i></button>
+      </div>
+      <form id="speedForm">
+        <label>
+          Easy - Beginer Mode:
+          <input type="radio" name="speed" value="350" />
+        </label>
+        <label>
+          Medium - Standard Mode:
+          <input type="radio" name="speed" value="250" />
+        </label>
+        <label>
+          Hard - Fast Mode:
+          <input type="radio" name="speed" value="150" />
+        </label>
+      </form>
+    </div>
+<!--help section-->
+    <div class="helpsection">
+      <div class="title-container2">
+      <h1 id="helptitle">How to Play Snake Game?</h1>
+      <button id="close-icon2"><i class="fa fa-times "></i></button>
+      </div>
+    
+      <!--controls section-->
+      <section class="paragraph">
+        <div class="help">
+          Controls:
+          <span
+            ><i class="fa-solid fa-angle-down down"></i
+            ><i class="fa-solid fa-angle-up up"></i
+          ></span>
+        </div>
+        <p class="pag">
+          ✅Press the arrow keys ⬅️⬆️⬇️➡️ to control the snake’s movement.
+        </p>
+      </section>
+      <!--objective section -->
+      <section class="paragraph">
+        <div class="help">
+          Objective:
+          <span
+            ><i class="fa-solid fa-angle-down down"></i
+            ><i class="fa-solid fa-angle-up up"></i
+          ></span>
+        </div>
+        <p class="pag">✅ Eat the food to grow longer and increase your score.</p>
+      </section>
+      <!--gameover section -->
+      <section class="paragraph">
+        <div class="help">
+          WhenGame Over:<span
+            ><i class="fa-solid fa-angle-down down"></i
+            ><i class="fa-solid fa-angle-up up"></i
+          ></span>
+        </div>
+        <p class="pag">
+          ✅ If the snake collides with itself or snake eat itself, the game will
+          end.
+        </p>
+      </section>
+      <div class="paragraph">
+        <div class="help">
+          Restart Mechanism:<span
+            ><i class="fa-solid fa-angle-down down"></i
+            ><i class="fa-solid fa-angle-up up"></i
+          ></span>
+        </div>
+        <p class="pag">✅ You can restart The game by refrsh when you lose.</p>
+      </div>
+      <!--tips section -->
+      <section class="paragraph">
+        <div class="help">
+          Tips:<span
+            ><i class="fa-solid fa-angle-down down"></i
+            ><i class="fa-solid fa-angle-up up"></i
+          ></span>
+        </div>
+        <div class="pag">
+          <p class="pag">
+            <i class="fa-brands fa-playstation"></i></i>Plan your moves ahead to
+            avoid getting trapped
+          </p>
+          <p class="pag">
+            <i class="fa-solid fa-sync"></i>Try to create loops to
+            maximize space for movement
+          </p>
+          <p class="pag">
+            <i class="fa-solid fa-forward"></i>The faster you react, the longer
+            you survive!
+          </p>
+          <p class="pag">
+            <i class="fa-solid fa-gamepad"></i>Enjoy the challenge and good
+            luck! 🐍🎮
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div id="snakeGroup" clas="bg">
+      <h1 id="snakeTitle">start game 🐍</h1>
+      <h2 id="score"></h2>
+      <canvas id="myCanvas" width="300" height="300"> </canvas>
+      <div class="darck-mood">
+        <i id="moon" class="fa-solid fa-moon"></i>
+        <i id="sun" class="fa-solid fa-sun"></i>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
