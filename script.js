@@ -223,7 +223,7 @@ if(food.x == snackeX && food.y == snackeY) {
     ctx.font = "30px SnakeBite";
     ctx.fillStyle = "#FFD700";
     ctx.fillText(score, 150, 26);   
-    let EatSound = new Audio("asset/sound/blue.mp3");
+    let EatSound = new Audio("sound/blue.mp3");
     EatSound.play();              
 }
 else {
@@ -240,7 +240,7 @@ let newHead={
 if (checkCollision(newHead)) {
     clearInterval(playGame); // Stop the game loop
 
-    let gameOverSound = new Audio("asset/sound/wrong.mp3");
+    let gameOverSound = new Audio("sound/wrong.mp3");
     gameOverSound.play();
 
     $("#snakeTitle").addClass("gameovertitle").text("Game Over!").css({"color":"red"});
