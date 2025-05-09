@@ -21,7 +21,7 @@ $("#sun").on("click", function() {
     $("#sun").hide();
     $("#moon").show();
     $("body").css({"background":originalBg});
-    $("#snakeTitle").css({"color":"#4f9b4f"});
+    $("#snakeTitle").css({"color":""});
     $("canvas").css("background-color" ,"#228B22");
 });
 
@@ -243,7 +243,7 @@ if (checkCollision(newHead)) {
     let gameOverSound = new Audio("asset/sound/wrong.mp3");
     gameOverSound.play();
 
-    $("#snakeTitle").addClass("gameovertitle").text("Game Over!");
+    $("#snakeTitle").addClass("gameovertitle").text("Game Over!").css({"color":"red"});
     $("canvas").css("background-color","red").fadeOut(500, function() {
         $(this).toggleClass("canvasgameover").fadeIn(500);
     });
