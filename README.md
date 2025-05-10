@@ -14,7 +14,7 @@
  - script.js → Game logic, movement, collision detection
  - jquery.js → Touch event handling & animations
  
-![image alt](https://github.com/bpmfMohammedAbdu/snacke-game/blob/f2657184c3adf266862b18c4d3811bfecb504cbd/Screenshot%202025-05-10%20010853.png)
+![image alt](https://github.com/bpmfMohammedAbdu/snake-game/blob/441678b66c85a29d3fb73a97e9dd63b6a7510300/Green%20and%20White%20Clean%20snake%20game%20Mockup.png)
      **🐍 Play  Now!**
  [Play the game here](https://bpmfmohammedabdu.github.io/snake-game/)
 
