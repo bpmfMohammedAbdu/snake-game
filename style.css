@@ -54,6 +54,48 @@ body{
     text-align: center;
     color:#4f9b4f;
 }
+
+.mobile-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.horizontal {
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+}
+
+.control-btn {
+    width: 65px;
+    height: 65px;
+    font-size: 24px;
+    background-color:#50ae50;
+    color: black;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    touch-action: manipulation; 
+}
+.control-dark-mode{
+     background-color:#6C6D82;
+    color: black;
+}
+
+/* Make it appear only on mobile & tablet */
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: flex;
+    }
+}
+
+
 .title-container{
     display: flex;
     justify-content: space-between;
@@ -116,19 +158,56 @@ border: none;
 }   
 .difficultyform{
     display: none;
-    position: absolute; 
-    top: 50px; 
-    left: -300px;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     flex-direction: column;
     background-color: #d6d0d0;
     padding: 20px;
     border-radius: 10px;
-    width: 30%;
-    height: 70vh;
-    margin: auto;
-    text-align: left; 
+    width: 80%; 
+    max-width: 400px; 
+    height: 60vh; 
+    max-height: 65vh;
+    overflow-y: auto; 
+    text-align: left;
+    z-index: 1000; 
 
 }
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .difficultyform {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    label {
+        font-size: 18px;
+        padding: 6px 10px;
+    }
+    
+    input[type=radio] {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .difficultyformtitle {
+        font-size: 18px;
+    }
+    
+    #fab-icon i, #close-icon2 {
+        font-size: 20px;
+    }
+}
+
+/* Tablet-specific styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .difficultyform {
+        width: 70%;
+    }
+}
+
 label{
     display: flex;
     padding:8px 12px;
@@ -146,39 +225,43 @@ input[type=radio]{
     height: 23px;
     accent-color: #FFD700;
 }
-.helpsection{
-    
-    position: absolute; 
-    top: 50px; 
-    left: -300px;
-    display: flex;
+
+.helpsection {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
     flex-direction: column;
     background-color: #d6d0d0;
     padding: 15px;
     border-radius: 20px;
-    width: 30%;
-    max-width: 400px;
-    margin: auto;
+    width: 80%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
     text-align: left;
-    display: none;
+    z-index: 1000;
 }
 #helptitle{
     font-family:"Poppins", sans-serif;
     color:#666;
     font-style: italic;
     padding-left: 10px;
-    font-size: 1.5rem;  
+    font-size: 1.3rem;  
     
 }
 #helptitle::after {
     content: "";
     display: block;
     width: 50px; 
-    border-bottom: 3px solid #3498db;   
+    border-bottom: 3px solid #3498db; 
+    margin-top: 5px;  
 }
 
-.help{
-    background-color:#d6d0d0; 
+
+.help {
+    background-color: #d6d0d0;
     border: 3px solid gainsboro;
     border-radius: 10px;
     padding: 5px;
@@ -187,7 +270,8 @@ input[type=radio]{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 span i {
     padding: 10px;
@@ -204,11 +288,46 @@ span i {
 p{
     display:none;
 }
+.paragraph {
+    margin-bottom: 15px;
+}
 .pag i {
     font-size: 16px; 
     color: #3498db; 
     margin-right: 10px; 
     vertical-align: middle; 
+}
+/* Mobile Styles */
+@media (max-width: 600px) {
+    .helpsection {
+        width: 90%;
+        padding: 10px;
+    }
+    
+    #helptitle {
+        font-size: 1.1rem;
+    }
+    
+    .help {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .pag {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+    
+    span i {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .helpsection {
+        width: 70%;
+    }
 }
 #score {
     text-align: center;
@@ -219,7 +338,7 @@ p{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 #myCanvas{
-    display: block;
+    display: none;
     margin: auto;
     position: fixed;
     left: 50%;

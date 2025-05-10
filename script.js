@@ -1,3 +1,22 @@
+//to control snake in mobile and touch devices
+$(document).ready(function() {
+    $("#up").on("click touchstart", function() { moveSnake("up"); });
+    $("#left").on("click touchstart", function() { moveSnake("left"); });
+    $("#right").on("click touchstart", function() { moveSnake("right"); });
+    $("#down").on("click touchstart", function() { moveSnake("down"); });
+
+    function moveSnake(direction) {
+        if ((direction === "left" && d === "right") ||
+            (direction === "right" && d === "left") ||
+            (direction === "up" && d === "down") ||
+            (direction === "down" && d === "up")) {
+            return; 
+        }
+        d = direction; 
+        console.log("Snake moves " + direction);
+    }
+});
+
 //color intensity chenge wen mouse hover
 let originalBg = $("body").css("background");
 
@@ -23,19 +42,21 @@ $("#sun").on("click", function() {
     $("body").css({"background":originalBg});
     $("#snakeTitle").css({"color":""});
     $("canvas").css("background-color" ,"#228B22");
+    $(".control-btn").removeClass("control-dark-mode");
 });
 
 $("#moon").on("click", function() {
     $("#moon").hide();
     $("#sun").show();
-    $("body").css({ "background": "#121a2f" });
-    $("#snakeTitle").css({"color":"#666"});
-    $("canvas").css("background-color" ,"#666");
+    $("body").css({ "background": "#22293B" });
+    $("#snakeTitle").css({"color":"#6C6D82"});
+    $("canvas").css("background-color" ,"#101523");
+    $(".control-btn").addClass("control-dark-mode");
 });
 
 
 $(document).ready(function() {
-    $(".slide").css({ opacity: 0, position: "relative", left: "-50px" }) // Initial state
+    $(".slide").css({ opacity: 0, position: "relative", left: "-50px" }) 
              .each(function(index) {
                  $(this).delay(index * 200).animate({ left: "0px", opacity: 1 }, 600);
              });
@@ -48,15 +69,16 @@ $(document).ready(function() {
 //to redy to paly game
 $("#btn1").on("click",function() {
     $(".container").fadeOut(400);
-    $("#snakeGroup").fadeIn(1000);}); 
+    $("#snakeGroup").fadeIn(1000);
+    $("#myCanvas").css("display","block")}); 
 
 $(document).ready(function(){
     $(".difficultyform"). css("display" ,"none" ).css({visibility:hide,left: "-300px" });
 })
+
 //to choose deficultyly
 $("#btn2").on("click",function(){
-   
-    $(".difficultyform").css("display","block").animate({ left: "33%" }, 500); 
+    $(".difficultyform").css("display","block").animate({ left: "50%" }, 500); 
 })
 //to close dificulrtyl form
 $("#fab-icon").on("click",function(){
@@ -67,7 +89,7 @@ $("#fab-icon").on("click",function(){
 //to whach help section
 $("#btn3").on("click",function(){
     $(".helpsection").show()
-    $(".helpsection").animate({ left:"33%"},500);   
+    $(".helpsection").animate({ left:"50%"},500);   
 })
 //to close help section
 $("#close-icon2").on("click",function(){
@@ -102,13 +124,11 @@ $(".down").on("click", function() {
 });
 
 
-
-
 $("canvas").css("background-color" ,"#228B22");
 const canvasn = document.getElementById("myCanvas");
 const ctx = canvasn.getContext("2d");
 
-//let divided our canvas 10 by 10 square 
+//let our canvas  square 
 let scale=20;
 const rows=canvasn.height/scale;
 const columns=canvasn.width/scale;
@@ -152,40 +172,52 @@ function direction(event){
 
 //snacke position 
 //call afunction eavry 500sec
-
 //draw snacke
 var playGame = setInterval(draw, 500);
 var score=0;
-function draw(){
-ctx.clearRect(0,0,canvasn.width,canvasn.height)   
-ctx.fillStyle="#FFD700";
-ctx.strokeStyle="#006400";
-for(i=0;i<snacke.length;i++){
-ctx.fillRect(snacke[i].x,snacke[i].y, scale,scale);
-ctx.strokeRect(snacke[i].x,snacke[i].y, scale,scale);
-}
+
+
+function draw() {
+    ctx.clearRect(0, 0, canvasn.width, canvasn.height);
+
+    for (let i = 0; i < snacke.length; i++) {
+        //Snake head Different style
+        if (i === 0) {
+            ctx.fillStyle = "#FF4500";  
+            ctx.strokeStyle = "#8B0000"; 
+
+            ctx.fillRect(snacke[i].x, snacke[i].y, scale, scale);
+            ctx.strokeRect(snacke[i].x, snacke[i].y, scale, scale);
+
+            ctx.fillStyle = "black";
+            ctx.fillRect(snacke[i].x + scale * 0.2, snacke[i].y + scale * 0.3, scale * 0.2, scale * 0.2);
+            ctx.fillRect(snacke[i].x + scale * 0.6, snacke[i].y + scale * 0.3, scale * 0.2, scale * 0.2);
+        } else {
+            ctx.fillStyle = "#FFD700"; 
+            ctx.strokeStyle = "#006400"; 
+            ctx.fillRect(snacke[i].x, snacke[i].y, scale, scale);
+            ctx.strokeRect(snacke[i].x, snacke[i].y, scale, scale);
+        }
+    }
 
 
 
 $("#btn1").on("click", function() {
     let selectedSpeed = $('input[name="speed"]:checked');
-
+    // Stops the current interval
     if (selectedSpeed.length > 0) { 
-        clearInterval(playGame); // Stops the current interval
+        clearInterval(playGame); 
         let speed = parseInt(selectedSpeed.val()); 
-
-        if (!isNaN(speed)) { // Ensures speed is valid
+        // Ensures speed is valid
+        if (!isNaN(speed)) { 
             playGame = setInterval(draw, speed);
         }
     }
 });
 
-
-
-
 //creat snackefood
 ctx.fillStyle="#FF4500";
-ctx.strokeStyle="#8B0000";
+ctx.strokeStyle="#FFD700";
 ctx.fillRect(food.x,food.y, scale,scale);
 ctx.strokeRect(food.x,food.y, scale,scale);
 
@@ -236,7 +268,7 @@ let newHead={
     x:snackeX,
     y:snackeY    
 }
-// Inside your draw function, before adding the new head:
+
 if (checkCollision(newHead)) {
     clearInterval(playGame); // Stop the game loop
 
