@@ -128,7 +128,7 @@ $("canvas").css("background-color" ,"#228B22");
 const canvasn = document.getElementById("myCanvas");
 const ctx = canvasn.getContext("2d");
 
-//let our canvas  square 
+// our canvas  square 
 let scale=20;
 const rows=canvasn.height/scale;
 const columns=canvasn.width/scale;
@@ -136,7 +136,6 @@ const columns=canvasn.width/scale;
 console.log(rows);
 console.log(columns);
 console.log(ctx);
-
 
 //snacke body
 let snacke=[];
